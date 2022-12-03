@@ -2,6 +2,7 @@
 
 namespace Jorge\Products\Controllers;
 
+use Exception;
 use Jorge\Products\Models\Product as ModelsProduct;
 use Jorge\Products\Utils\DateFormat;
 
@@ -29,15 +30,28 @@ class Product extends Controller
         echo $this->view->render("cadastrar", []);
     }
 
-    public function store(): bool
+    public function store()
     {
-        $name = $_POST["name"];
-        $price = $_POST["price"];
+        try {
+            $name = $_POST["name"];
+            $price = $_POST["price"];
 
-        echo $name;
-        echo $price;
-        die;
-        return false;
+            $product = $this->model;
+            $product->name = $name;
+            $product->price = $price;
+
+            if ($product->save()) {
+                $this->router->redirect('product.home', [
+                    "message" => "Produto cadastrado com sucesso!"
+                ]);
+            }
+
+            throw new Exception("Produto não cadastrado");
+        } catch (\Throwable $th) {
+            $this->router->redirect('product.error', [
+                "message" => $th->getMessage()
+            ]);
+        }
     }
 
     public function edit(): bool

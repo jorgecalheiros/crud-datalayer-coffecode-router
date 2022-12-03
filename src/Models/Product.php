@@ -8,7 +8,7 @@ class Product extends DataLayer
 {
     public function __construct()
     {
-        parent::__construct("products", ["id", "name", "price"]);
+        parent::__construct("products", ["name", "price"]);
     }
 
     public function list($order = "")
