@@ -1,0 +1,34 @@
+version: '3'
+services:
+  www:
+    build: .
+    container_name: products-www
+    ports:
+      - 8001:80
+    volumes:
+      - .:/var/www/html
+    links:
+      - db
+    networks:
+      - default
+    depends_on:
+      - db
+  db:
+    image: mysql
+    container_name: products-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: crud
+      MYSQL_ROOT_PASSWORD: 123
+    networks:
+      - default
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: products-phpmyadmin
+    links:
+      - db:db
+    ports:
+      - 8002:80
+    environment:
+      MYSQL_ROOT_PASSWORD: 123

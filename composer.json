@@ -1,0 +1,23 @@
+{
+    "name": "jorge/products",
+    "description": "Crud",
+    "autoload": {
+        "psr-4": {
+            "Jorge\\Products\\": "src/"
+        },
+        "files": [
+            "src/Config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Jorge-Calheiros-de-Sousa",
+            "email": "jorgecalheiros.s@gmail.com"
+        }
+    ],
+    "require": {
+        "coffeecode/datalayer": "^1.1",
+        "coffeecode/router": "^1.0",
+        "league/plates": "^3.4"
+    }
+}
