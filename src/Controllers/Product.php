@@ -20,7 +20,7 @@ class Product extends Controller
     public function home(): void
     {
         echo $this->view->render("home", [
-            "products" => $this->model->list("name"),
+            "products" => $this->model->list("created_at"),
             "dateFormat" => new DateFormat()
         ]);
     }
@@ -41,9 +41,7 @@ class Product extends Controller
             $product->price = $price;
 
             if ($product->save()) {
-                $this->router->redirect('product.home', [
-                    "message" => "Produto cadastrado com sucesso!"
-                ]);
+                $this->router->redirect('product.home');
             }
 
             throw new Exception("Produto não cadastrado");
