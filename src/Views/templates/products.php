@@ -3,6 +3,7 @@
 <?= $this->start('links_css') ?>
 <link rel="stylesheet" href="<?= asset("/css/products.css") ?>">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script src="<?= asset("/js/jquery.maskMoney.min.js") ?>" type="text/javascript"></script>
 <?= $this->stop() ?>
 
 <main class="content">
@@ -31,8 +32,10 @@
                             <td date><?= $prod->updated_at ?></td>
                             <td>
                                 <div class="container-buttosn">
-                                    <button class="editar">Editar</button>
-                                    <button class="excluir">Excluir</button>
+                                    <a class="editar" href="<?= $router->route('product.edit', [
+                                                                "id" => $prod->id
+                                                            ]) ?>">Editar</a>
+                                    <a class="excluir" href="">Excluir</a>
                                 </div>
                             </td>
                         </tr>
@@ -65,7 +68,6 @@
             const dataNova = new Date(d.innerHTML);
             const dia = dataNova.getDate() > 10 ? data.getDate() : "0" + dataNova.getDate();
             d.innerHTML = dia + "/" + (dataNova.getMonth() + 1) + "/" + dataNova.getFullYear();
-
         })
     })
 </script>

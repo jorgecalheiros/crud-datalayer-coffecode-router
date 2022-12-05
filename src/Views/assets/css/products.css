@@ -70,6 +70,8 @@
     border-radius: 5px;
     cursor: pointer;
     color: white;
+    font-size: 14px;
+    text-decoration: none;
 
     transition: all 100ms;
 }
@@ -81,6 +83,9 @@
     border-radius: 5px;
     cursor: pointer;
     color: white;
+
+    font-size: 14px;
+    text-decoration: none;
 
     transition: all 100ms;
 }

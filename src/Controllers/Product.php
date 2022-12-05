@@ -31,7 +31,14 @@ class Product extends Controller
 
     public function create(): void
     {
-        echo $this->view->render("cadastrar", []);
+        echo $this->view->render("cadastrar", [
+            "name" => "",
+            "price" => "",
+            "method" => "POST",
+            "nameRoute" => "/store-product",
+            "textButton" => "Cadastrar",
+            "title" => "Cadastrar Produto"
+        ]);
     }
 
     public function store()
@@ -43,9 +50,8 @@ class Product extends Controller
             $product = $this->model;
             $product->name = $name;
             $product->price = $price;
-
             if ($product->save()) {
-                $this->router->redirect('product.home');
+                $this->router->redirect('product.list');
             }
 
             throw new Exception("Produto não cadastrado");
@@ -54,13 +60,39 @@ class Product extends Controller
         }
     }
 
-    public function edit(): bool
+    public function edit(array $data): void
     {
-        return true;
+        $id = $data["id"];
+        $product = $this->model->findById($id);
+
+        echo $this->view->render('cadastrar', [
+            "name" => $product->name,
+            "price" => $product->price,
+            "method" => "POST",
+            "nameRoute" => "/update-product/$product->id",
+            "textButton" => "Editar",
+            "title" => "Editar Produto"
+        ]);
     }
 
-    public function update(): void
+    public function update(array $data): void
     {
+        try {
+            $name = $_POST["name"];
+            $price = $_POST["price"];
+            $id = $data["id"];
+
+            $product = $this->model->findById($id);
+            $product->name = $name;
+            $product->price = $price;
+
+            if ($product->save()) {
+                $this->router->redirect('product.list');
+            }
+            throw new Exception("Produto não alterado");
+        } catch (\Throwable $th) {
+            $this->error($th->getMessage());
+        }
     }
 
     public function delete(): void
