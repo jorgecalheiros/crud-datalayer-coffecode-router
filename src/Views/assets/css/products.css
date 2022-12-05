@@ -63,6 +63,10 @@
     text-decoration: none;
 }
 
+.container-button {
+    display: flex;
+}
+
 .editar {
     background-color: rgb(245, 111, 22);
     padding: 5px 20px 5px 20px;
@@ -83,6 +87,7 @@
     border-radius: 5px;
     cursor: pointer;
     color: white;
+    margin-left: 5px;
 
     font-size: 14px;
     text-decoration: none;

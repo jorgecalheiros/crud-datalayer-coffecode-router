@@ -15,6 +15,7 @@ $router->post("/store-product", "Product:store", "product.store");
 $router->get("/error", "Product:error", "product.error");
 $router->get("/edit-product/{id}", "Product:edit", "product.edit");
 $router->post("/update-product/{id}", "Product:update", "product.update");
+$router->post("/delete-product/{id}", "Product:delete", "product.delete");
 
 $router->dispatch();
 

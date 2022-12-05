@@ -28,10 +28,10 @@ abstract class Controller
         }
     }
 
-    public function error(): void
+    public function error(array $data): void
     {
         echo $this->view->render('error', [
-            "message" => null
+            'message' => $data['message'] ?? "Not Found"
         ]);
     }
 }

@@ -56,7 +56,10 @@ class Product extends Controller
 
             throw new Exception("Produto não cadastrado");
         } catch (\Throwable $th) {
-            $this->error($th->getMessage());
+            $data = [
+                "message" => $th->getMessage()
+            ];
+            $this->error($data);
         }
     }
 
@@ -91,11 +94,24 @@ class Product extends Controller
             }
             throw new Exception("Produto não alterado");
         } catch (\Throwable $th) {
-            $this->error($th->getMessage());
+            $data = [
+                "message" => $th->getMessage()
+            ];
+            $this->error($data);
         }
     }
 
-    public function delete(): void
+    public function delete(array $data): void
     {
+        try {
+            $id = $data["id"];
+            $product = $this->model->findById($id);
+            if ($product->destroy()) {
+                $this->router->redirect('product.list');
+            }
+            throw new Exception("Produto não deletado");
+        } catch (\Throwable $th) {
+            $this->router->redirect('product.error', ['message' => $th->getMessage()]);
+        }
     }
 }

@@ -31,11 +31,13 @@
                             <td date><?= $prod->created_at ?></td>
                             <td date><?= $prod->updated_at ?></td>
                             <td>
-                                <div class="container-buttosn">
-                                    <a class="editar" href="<?= $router->route('product.edit', [
-                                                                "id" => $prod->id
-                                                            ]) ?>">Editar</a>
-                                    <a class="excluir" href="">Excluir</a>
+                                <div class="container-button">
+                                    <a class="editar" href="<?= $router->route('product.edit', ["id" => $prod->id]) ?>">Editar</a>
+                                    <form action="<?= $router->route("product.delete", ["id" => $prod->id]) ?>" method="POST">
+                                        <button class="excluir">
+                                            Excluir
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
