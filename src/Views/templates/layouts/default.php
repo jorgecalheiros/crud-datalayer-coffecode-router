@@ -31,5 +31,6 @@
     </main>
     <footer></footer>
 </body>
+<?= $this->section('scripts') ?>
 
 </html>

@@ -2,6 +2,7 @@
 
 <?= $this->start('links_css') ?>
 <link rel="stylesheet" href="<?= asset("/css/products.css") ?>">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <?= $this->stop() ?>
 
 <main class="content">
@@ -25,9 +26,9 @@
                 <?php if (!empty($products)) : foreach ($products as $prod) : ?>
                         <tr>
                             <td><?= $prod->name ?></td>
-                            <td><?= $prod->price ?></td>
-                            <td><?= $dateFormat->dateFormat($prod->created_at) ?></td>
-                            <td><?= $dateFormat->dateFormat($prod->updated_at) ?></td>
+                            <td money='R$'><?= $prod->price ?></td>
+                            <td date><?= $prod->created_at ?></td>
+                            <td date><?= $prod->updated_at ?></td>
                             <td>
                                 <div class="container-buttosn">
                                     <button class="editar">Editar</button>
@@ -46,3 +47,27 @@
         </table>
     </div>
 </main>
+
+<?php $this->start('scripts') ?>
+<script>
+    $(document).ready(function() {
+        const precos = $('[money="R$"]')
+        const dates = $('[date=""]');
+
+        precos.each((index, p) => {
+            p.innerHTML = parseInt(p.innerHTML).toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+        })
+
+        dates.each((index, d) => {
+            const dataNova = new Date(d.innerHTML);
+            const dia = dataNova.getDate() > 10 ? data.getDate() : "0" + dataNova.getDate();
+            d.innerHTML = dia + "/" + (dataNova.getMonth() + 1) + "/" + dataNova.getFullYear();
+
+        })
+    })
+</script>
+
+<?php $this->stop() ?>

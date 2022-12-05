@@ -4,7 +4,6 @@ namespace Jorge\Products\Controllers;
 
 use Exception;
 use Jorge\Products\Models\Product as ModelsProduct;
-use Jorge\Products\Utils\DateFormat;
 
 class Product extends Controller
 {
@@ -26,8 +25,7 @@ class Product extends Controller
     public function products(): void
     {
         echo $this->view->render("products", [
-            "products" => $this->model->list("created_at"),
-            "dateFormat" => new DateFormat()
+            "products" => $this->model->list("created_at")
         ]);
     }
 
