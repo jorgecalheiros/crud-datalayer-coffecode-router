@@ -58,7 +58,7 @@
         const dates = $('[date=""]');
 
         precos.each((index, p) => {
-            p.innerHTML = parseInt(p.innerHTML).toLocaleString('pt-BR', {
+            p.innerHTML = parseFloat(p.innerHTML).toLocaleString('pt-br', {
                 style: 'currency',
                 currency: 'BRL'
             });
