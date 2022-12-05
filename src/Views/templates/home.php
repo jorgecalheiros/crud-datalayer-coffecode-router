@@ -17,10 +17,10 @@
         </a>
         <nav class="header-nav-bar">
             <ul>
-                <a href="#">
+                <a href="<?= $router->route('product.home') ?>">
                     <li class="item-nav-bar">Início</li>
                 </a>
-                <a href="#">
+                <a href="<?= $router->route('product.list') ?>">
                     <li class="item-nav-bar">(crud exemplo) Produtos</li>
                 </a>
             </ul>

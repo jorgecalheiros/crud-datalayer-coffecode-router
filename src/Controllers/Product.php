@@ -21,11 +21,14 @@ class Product extends Controller
     {
 
         echo $this->view->render("home");
+    }
 
-        //echo $this->view->render("home", [
-        //    "products" => $this->model->list("created_at"),
-        //    "dateFormat" => new DateFormat()
-        //]);
+    public function products(): void
+    {
+        echo $this->view->render("products", [
+            "products" => $this->model->list("created_at"),
+            "dateFormat" => new DateFormat()
+        ]);
     }
 
     public function create(): void

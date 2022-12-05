@@ -9,6 +9,7 @@ $router = new Router(ROOT);
 $router->namespace("\Jorge\Products\Controllers");
 
 $router->get("/", "Product:home", "product.home");
+$router->get("/produtcs", "Product:products", "product.list");
 $router->get("/create-product", "Product:create", "product.create");
 $router->post("/store-product", "Product:store", "product.store");
 $router->get("/error", "Product:error", "product.error");
