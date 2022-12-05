@@ -20,7 +20,7 @@ class Product extends Controller
     public function home(): void
     {
 
-        echo $this->view->render("inicio");
+        echo $this->view->render("home");
 
         //echo $this->view->render("home", [
         //    "products" => $this->model->list("created_at"),

@@ -1,0 +1,38 @@
+header {
+    background-color: #025181;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 100px;
+}
+
+header .header-title {
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+header .header-nav-bar ul {
+    display: flex;
+    list-style: none;
+}
+
+header .header-nav-bar a {
+    text-decoration: none;
+    color: white;
+
+    font-weight: bolder;
+    text-transform: uppercase;
+
+    width: fit-content;
+    padding: 0 10px 0 10px;
+    transition: color 200ms linear;
+}
+
+header .header-nav-bar a:hover {
+    color: silver;
+}

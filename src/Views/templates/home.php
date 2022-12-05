@@ -1,68 +1,108 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="<?= asset("/css/home.css") ?>">
+    <link rel="stylesheet" href="<?= asset("/css/inicio.css") ?>">
 </head>
 
 <body>
     <header>
-        <h2 class="title-header">CRUD</h2>
 
-        <nav class="nav-header">
+        <a href="#" class="header-title">
+            <span>Crudzinho básico</span>
+        </a>
+        <nav class="header-nav-bar">
             <ul>
-                <li>Produtos</li>
+                <a href="#">
+                    <li class="item-nav-bar">Início</li>
+                </a>
+                <a href="#">
+                    <li class="item-nav-bar">(crud exemplo) Produtos</li>
+                </a>
             </ul>
         </nav>
     </header>
-    </aside>
-    <main class="content">
-        <div class="container">
-            <div class="header-container">
-                <h1 class="title-container">Produtos </h1>
-                <a class="novo" href="<?= $router->route('product.create') ?>">Novo produto +</a>
+    <main>
+        <section>
+            <h1 class="title">Coffeecode/Router</h1>
+            <div class="content">
+                <h2 class="title-second">Sobre Router</h2>
+                <p>
+                    Pequeno, simples e descomplicado. O <strong>Router</strong> é um componente de rotas PHP com abstração MVC. Preparado com verbos Restfull (GET,POST,PUT,PATCH e DELETE), trabalha em sua própria camada de forma isolada e pode ser integrado sem segredos a sua aplicação.
+                </p>
             </div>
-
-            <table class="table-container-products">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Preço</th>
-                        <th>Criado</th>
-                        <th>Ultima vez alterado</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (!empty($products)) : foreach ($products as $prod) : ?>
-                            <tr>
-                                <td><?= $prod->name ?></td>
-                                <td><?= $prod->price ?></td>
-                                <td><?= $dateFormat->dateFormat($prod->created_at) ?></td>
-                                <td><?= $dateFormat->dateFormat($prod->updated_at) ?></td>
-                                <td>
-                                    <div class="container-buttosn">
-                                        <button class="editar">Editar</button>
-                                        <button class="excluir">Excluir</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        <?php endforeach;
-                    else : ?>
-                        <div class="without-products-container">
-                            Sem produtos cadastrados
-                        </div>
-                    <?php endif; ?>
-
-                </tbody>
-            </table>
-        </div>
+            <div class="content">
+                <h2 class="title-second">Sobre CoffeeCode</h2>
+                <p>
+                    CoffeeCode é um conjunto de pequenos e otimizados componentes PHP para tarefas comuns. Mantido por Robson V. Leite e a equipe UpInside. Com eles você executa tarefas rotineiras com poucas linhas, escrevendo menos e fazendo muito mais.
+                </p>
+            </div>
+            <nav class="list">
+                <h2 class="title-second">Pontos fortes</h2>
+                <ul>
+                    <li>Classe router com todos os verbos RESTful</li>
+                    <li>Despacho otimizado com controle total de decisões</li>
+                    <li>Falsificador (Spoofing) de requisição para verbalização local)</li>
+                    <li>É muito simples criar rotas para sua aplicação ou API</li>
+                    <li>Gatilho e transportador de dados para o controloador</li>
+                    <li>Pronto para o composer e compatível com PSR-2</li>
+                </ul>
+            </nav>
+            <div class="content">
+                <h2 class="title-second">Instalação</h2>
+                <code>
+                    composer require coffeecode/router
+                </code>
+            </div>
+            <div class="content">
+                <h2 class="title-second">Documentação</h2>
+                <p>
+                    Para mais informações clique <a href="https://packagist.org/packages/coffeecode/router" target="_blank">aqui</a>.
+                </p>
+            </div>
+        </section>
+        <section>
+            <h1 class="title">Coffeecode/DataLayer</h1>
+            <div class="content">
+                <h2 class="title-second">Sobre DataLayer</h2>
+                <p>
+                    O <strong>Data Layer</strong> é um componente para abstração de persistência no seu banco de dados que usa PDO com prepared statements para executar rotinar comuns como cadastrar, ler editar e remover dados.
+                </p>
+            </div>
+            <div class="content">
+                <h2 class="title-second">Sobre CoffeeCode</h2>
+                <p>
+                    CoffeeCode é um conjunto de pequenos e otimizados componentes PHP para tarefas comuns. Mantido por Robson V. Leite e a equipe UpInside. Com eles você executa tarefas rotineiras com poucas linhas, escrevendo menos e fazendo muito mais. </p>
+            </div>
+            <nav class="list">
+                <h2 class="title-second">Pontos fortes</h2>
+                <ul>
+                    <li>Fácil de configurar</li>
+                    <li>Asbtração total do CRUD</li>
+                    <li>Crie de modelos seguros</li>
+                    <li>Pronto para o composer</li>
+                    <li>Compatível com PSR-2</li>
+                </ul>
+            </nav>
+            <div class="content">
+                <h2 class="title-second">Instalação</h2>
+                <code>
+                    composer require coffeecode/datalayer
+                </code>
+            </div>
+            <div class="content">
+                <h2 class="title-second">Documentação</h2>
+                <p>
+                    Para mais informações clique <a href="https://packagist.org/packages/coffeecode/datalayer" target="_blank">aqui</a>.
+                </p>
+            </div>
+        </section>
     </main>
-
+    <footer></footer>
 </body>
 
 </html>
