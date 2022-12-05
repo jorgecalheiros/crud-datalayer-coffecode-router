@@ -27,4 +27,11 @@ abstract class Controller
             $this->view->addData($globals);
         }
     }
+
+    public function error(): void
+    {
+        echo $this->view->render('error', [
+            "message" => null
+        ]);
+    }
 }

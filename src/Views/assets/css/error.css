@@ -1,0 +1,33 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container-error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-error .title-error {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.container-error .container-image img {
+    width: 500px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    align-items: center;
+    display: flex;
+}
+
+footer span {
+    font-size: 12px;
+    color: gray;
+}

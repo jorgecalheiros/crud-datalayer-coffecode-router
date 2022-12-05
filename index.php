@@ -11,10 +11,11 @@ $router->namespace("\Jorge\Products\Controllers");
 $router->get("/", "Product:home", "product.home");
 $router->get("/create-product", "Product:create", "product.create");
 $router->post("/store-product", "Product:store", "product.store");
+$router->get("/error", "Product:error", "product.error");
 
 $router->dispatch();
 
 
 if ($error = $router->error()) {
-    var_dump($error);
+    $router->redirect('product.error');
 }

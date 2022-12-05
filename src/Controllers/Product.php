@@ -46,9 +46,7 @@ class Product extends Controller
 
             throw new Exception("Produto não cadastrado");
         } catch (\Throwable $th) {
-            $this->router->redirect('product.error', [
-                "message" => $th->getMessage()
-            ]);
+            $this->error($th->getMessage());
         }
     }
 
