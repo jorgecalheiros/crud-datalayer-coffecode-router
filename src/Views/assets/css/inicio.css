@@ -48,23 +48,54 @@ header .header-nav-bar a:hover {
 
 main {
     margin: 0 20px 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 main section {
     margin-bottom: 80px;
     padding: 20px;
     border-bottom: 2px solid silver;
-    display: flex;
+    width: 50%;
 }
 
-main section .content {
-    width: 500px;
+main section .content,
+.list {
+    margin-bottom: 50px;
 }
 
-main .toLeft {
-    justify-content: flex-start;
+main section .list ul {
+    list-style: inside;
+}
+
+main section .list li {
+    margin: 10px 0 10px 0;
+}
+
+main section .title {
+    text-transform: uppercase;
+    color: silver;
+    margin-bottom: 20px;
+}
+
+main section .title-second {
+    text-transform: uppercase;
+    color: gray;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+main section .content p {
+    line-height: 30px;
+    color: rgb(34, 34, 34);
+}
+
+main.toLeft {
+    text-align: left;
 }
 
 main .toRight {
-    justify-content: flex-end;
+    text-align: right;
 }
